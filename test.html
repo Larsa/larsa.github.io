@@ -16,7 +16,10 @@
 			function test() {
 				console.log('test')
 				try {
-					window.location.href = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.google.com";
+					//window.location.href = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.amnesty.se";
+					var f = window.document.createElement('iframe')
+					f.src = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.amnesty.se"
+					window.document.childNodes[1].append(f)
 				} catch(e) {
 					console.log('error: ' + e)
 				}
@@ -27,7 +30,7 @@
 	
 	<body>
 		<p>
-			v 2
+			v 3
 		</p>
 		<p>
 			<a href="javascript:test()">Knapp</a>
