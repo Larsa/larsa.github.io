@@ -13,6 +13,24 @@
 		<base href="./">
 		
 		<script type="text/javascript">
+		
+			function checkScheme() {
+				console.log("checkScheme");
+			    var script = document.createElement('script'); 
+
+			    script.onload = function() { 
+			        window.schemeSupported = true;
+			    } 
+			    script.onerror = function() { 
+			        window.schemeSupported = false;
+			    } 
+
+			    script.setAttribute('src', "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.amnesty.se"); 
+
+			    document.getElementsByTagName('head')[0].appendChild(script);
+			}		
+		
+		
 			function test() {
 				console.log('test')
 				try {
@@ -30,11 +48,16 @@
 	
 	<body>
 		<p>
-			v 3
+			v 4
 		</p>
 		<p>
 			<a href="javascript:test()">Knapp</a>
 		</p>
+		
+		<script type="text/javascript">
+			checkScheme();
+		</script>
+		
 	</body>
 
 </html>
