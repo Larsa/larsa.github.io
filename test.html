@@ -15,16 +15,17 @@
 		<script type="text/javascript">
 			function test() {
 				console.log('test')
-				window.location = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.google.com"
+				try {
+					window.location = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.google.com"
+				} catch(e) {
+					console.log('error: ' + e)
+				}
 			}
 		</script>
 		
 	</head>
 	
 	<body>
-		<p>
-			&#xFFFD;
-		</p>
 		<p>
 			Content
 		</p>
