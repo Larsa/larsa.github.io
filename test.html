@@ -42,17 +42,32 @@
 					console.log('error: ' + e)
 				}
 			}
+			
+			function debug() {
+				var msg = "window.schemeSupported: " + window.schemeSupported + ' ' + typeof(window.schemeSupported);
+				console.log(msg)
+				document.getElementById('debug').innerHTML = msg;
+			}
+			
 		</script>
 		
 	</head>
 	
 	<body>
 		<p>
-			v 4
+			v 5
 		</p>
 		<p>
-			<a href="javascript:test()">Knapp</a>
+			<a href="javascript:test()">Test</a>
 		</p>
+		<p>
+			<a href="javascript:debug()">Debug</a>
+		</p>
+		
+		<p id="debug" name="debug">
+			
+		</p>
+		
 		
 		<script type="text/javascript">
 			checkScheme();
