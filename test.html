@@ -16,7 +16,7 @@
 			function test() {
 				console.log('test')
 				try {
-					window.location = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.google.com"
+					window.open("swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.google.com");
 				} catch(e) {
 					console.log('error: ' + e)
 				}
