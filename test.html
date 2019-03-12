@@ -14,6 +14,8 @@
 		
 		<script type="text/javascript">
 		
+			// Other options: https://webmasters.stackexchange.com/questions/47161/app-uri-scheme-fallback-urls
+		
 			function checkScheme() {
 				console.log("checkScheme");
 			    var script = document.createElement('script'); 
@@ -34,17 +36,25 @@
 			function test() {
 				console.log('test')
 				try {
-					//window.location.href = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.amnesty.se";
+					if(true || window.schemeSupported) {
+						window.location.href = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.amnesty.se";
+					}
+					/*
 					var f = window.document.createElement('iframe')
 					f.src = "swish://paymentrequest?token=5B2661E950044BDCB81ECDF0D2CE1C44&callbackurl=https%3A%2F%2Fwww.amnesty.se"
 					window.document.childNodes[1].append(f)
+					*/
 				} catch(e) {
 					console.log('error: ' + e)
 				}
 			}
+
+		    function isMobile() {
+		      return Boolean((navigator.userAgent.match(/iPhone|iPad|iPod/i) || navigator.userAgent.match(/Android/i)) && typeof window.orientation !== "undefined")
+		    }
 			
 			function debug() {
-				var msg = "window.schemeSupported: " + window.schemeSupported + ' ' + typeof(window.schemeSupported);
+				var msg = 'isMobile: ' + isMobile();
 				console.log(msg)
 				document.getElementById('debug').innerHTML = msg;
 			}
@@ -55,7 +65,7 @@
 	
 	<body>
 		<p>
-			v 5
+			v 7
 		</p>
 		<p>
 			<a href="javascript:test()">Test</a>
@@ -70,7 +80,8 @@
 		
 		
 		<script type="text/javascript">
-			checkScheme();
+			//checkScheme();
+			console.log(navigator.userAgent)
 		</script>
 		
 	</body>
