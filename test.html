@@ -50,7 +50,7 @@
 			}
 
 		    function isMobile() {
-		      return Boolean((navigator.userAgent.match(/iPhone|iPad|iPod/i) || navigator.userAgent.match(/Android/i)) && typeof window.orientation !== "undefined")
+		      return Boolean((navigator.userAgent.match(/iPhone|iPad|iPod/i) || navigator.userAgent.match(/Android/i))) && typeof window.orientation !== "undefined"
 		    }
 			
 			function debug() {
@@ -65,7 +65,7 @@
 	
 	<body>
 		<p>
-			v 7
+			v 8
 		</p>
 		<p>
 			<a href="javascript:test()">Test</a>
